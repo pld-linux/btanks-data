@@ -2,14 +2,15 @@
 Summary:	Data for Battle Tanks arcade game with multiplayer and split-screen modes
 Summary(pl.UTF-8):	Dane do gry zręcznościowej Battle Tanks z trybem dla wielu graczy
 Name:		%{_name}-data
-Version:	0.7.5800
+Version:	0.8.7656
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/btanks/%{_name}-%{version}.tar.bz2
-# Source0-md5:	538eadf2b78897620f3ef683a4ea423a
-URL:		http://btanks.sourceforge.net/blog/langswitch_lang/en
+# Source0-md5:	d815db9784ad6498c3c5d002e64106b3
+URL:		http://btanks.sourceforge.net/blog/
 Requires:	%{_name} = %{version}
+BuildRequires:	zip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,13 +33,14 @@ wszystkim oraz współpracę - cóż więcej potrzeba do zabawy z kolegami?
 Ten pakiet zawiera pliki z danymi dla Battle Tanks.
 
 %prep
-%setup -q -n %{_name}-%{version}
+%setup -q -n %{_name}-%{version}/data
+zip -q -0 -r resources.dat .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{_name}
-cp -r data $RPM_BUILD_ROOT%{_datadir}/%{_name}
+install resources.dat $RPM_BUILD_ROOT%{_datadir}/%{_name}/resources.dat
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,4 +48,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %dir %{_datadir}/%{_name}
-%{_datadir}/%{_name}/data
+%{_datadir}/%{_name}/resources.dat
