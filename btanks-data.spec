@@ -2,15 +2,15 @@
 Summary:	Data for Battle Tanks arcade game with multiplayer and split-screen modes
 Summary(pl.UTF-8):	Dane do gry zręcznościowej Battle Tanks z trybem dla wielu graczy
 Name:		%{_name}-data
-Version:	0.8.7656
+Version:	0.8.7686
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/btanks/%{_name}-%{version}.tar.bz2
-# Source0-md5:	d815db9784ad6498c3c5d002e64106b3
+# Source0-md5:	f5e4076e8562f4ad54fefeceaa37870d
 URL:		http://btanks.sourceforge.net/blog/
-Requires:	%{_name} = %{version}
 BuildRequires:	zip
+Requires:	%{_name} = %{version}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
